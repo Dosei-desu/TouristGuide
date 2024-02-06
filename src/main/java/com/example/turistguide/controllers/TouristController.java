@@ -14,13 +14,13 @@ import java.util.List;
 public class TouristController {
     TouristService touristService = new TouristService();
 
-    @GetMapping("attractions/all")
+    @GetMapping("") //context root
     public ResponseEntity<List<TouristAttraction>> getAllAttractions(){
         List<TouristAttraction> attractionList = touristService.getAttractions();
         return new ResponseEntity<>(attractionList, HttpStatus.OK);
     }
 
-    @GetMapping("attractions/{name}")
+    @GetMapping("{name}")
     public ResponseEntity<TouristAttraction> getAttraction(@PathVariable String name){
         TouristAttraction touristAttraction = touristService.getAttractionWithName(name);
         if (touristAttraction == null){
@@ -30,7 +30,7 @@ public class TouristController {
         return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
     }
 
-    @PostMapping("attractions/create")
+    @PostMapping("create")
     public ResponseEntity<TouristAttraction> addAttraction(@RequestBody TouristAttraction attraction){
         TouristAttraction touristAttraction = touristService.addAttraction(attraction);
         if (touristAttraction == null){
@@ -40,7 +40,7 @@ public class TouristController {
         return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
     }
 
-    @PutMapping("attractions/update")
+    @PutMapping("update")
     public ResponseEntity<TouristAttraction> changeAttraction(@RequestBody TouristAttraction attraction){
         TouristAttraction touristAttraction = touristService.changeAttraction(attraction);
         if (touristAttraction == null){
@@ -50,7 +50,7 @@ public class TouristController {
         return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
     }
 
-    @DeleteMapping("attractions/delete/{name}")
+    @DeleteMapping("delete/{name}")
     public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name){
         TouristAttraction touristAttraction = touristService.deleteAttraction(name);
         if (touristAttraction == null){
