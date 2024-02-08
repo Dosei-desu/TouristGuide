@@ -1,0 +1,9 @@
+ul.myList{
+    display: inline-block;
+    text-align: left;
+}
+
+div.myContent{
+    text-align: center;
+    color: darkred;
+}

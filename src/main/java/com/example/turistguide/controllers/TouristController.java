@@ -50,7 +50,7 @@ public class TouristController {
         return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/{name}")
+    @GetMapping("delete/{name}")
     public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name){
         TouristAttraction touristAttraction = touristService.deleteAttraction(name);
         if (touristAttraction == null){
