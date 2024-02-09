@@ -40,7 +40,7 @@ public class TouristController {
         return new ResponseEntity<>(touristAttraction, HttpStatus.OK);
     }
 
-    @PutMapping("update")
+    @PostMapping("update")
     public ResponseEntity<TouristAttraction> changeAttraction(@RequestBody TouristAttraction attraction){
         TouristAttraction touristAttraction = touristService.changeAttraction(attraction);
         if (touristAttraction == null){

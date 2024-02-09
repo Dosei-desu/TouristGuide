@@ -3,7 +3,13 @@ ul.myList{
     text-align: left;
 }
 
-div.myContent{
+.container{
     text-align: center;
     color: darkred;
+}
+
+.gridLayout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
 }
