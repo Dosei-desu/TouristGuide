@@ -8,7 +8,12 @@ import java.util.List;
 
 @Service
 public class TouristService {
-    TouristRepository touristRepository = new TouristRepository();
+    TouristRepository touristRepository;
+
+    public TouristService(TouristRepository touristRepository){
+        this.touristRepository = touristRepository;
+    }
+
     public List<TouristAttraction> getAttractions() {
         return touristRepository.getAttractions();
     }

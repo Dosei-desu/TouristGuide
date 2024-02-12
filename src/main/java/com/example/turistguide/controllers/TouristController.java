@@ -12,7 +12,11 @@ import java.util.List;
 @Controller
 @RequestMapping("attractions")
 public class TouristController {
-    TouristService touristService = new TouristService();
+    TouristService touristService;
+
+    public TouristController(TouristService touristService){
+        this.touristService = touristService;
+    }
 
     @GetMapping("") //context root
     public ResponseEntity<List<TouristAttraction>> getAllAttractions(){
